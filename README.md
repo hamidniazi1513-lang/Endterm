@@ -34,13 +34,13 @@ Sample JSON for Creating a User:
   "username": "hamid_niazi",
   "email": "hamid@example.com",
   "role": "ADMIN"
-} Method,Endpoint,Description
+}
+`Method,Endpoint,Description
 GET,/api/tasks,Retrieve all tasks.
-POST,/api/tasks,Create a new task. 
+POST,/api/tasks,Create a new task.
 Method,Endpoint,Description
 GET,/api/reports/pdf,Generates a PDF Report using the PdfReport class.
-GET,/api/reports/csv,Generates a CSV Report using the CsvReport class.  
-
+GET,/api/reports/csv,Generates a CSV Report using the CsvReport class.
 4. Project Structure & Proofs
 Source Code: Located in src/main/java/com/hamidniazi/endterm_project.
 Documentation & Screenshots: All proof of execution (Postman tests and UML Diagrams) can be found in the docs folder.
@@ -53,10 +53,11 @@ Run EndtermProjectApplication.java.
 
 🌟 Bonus Task: In-Memory Caching Layer Overview
 To enhance performance and reduce database load, I implemented a custom In-Memory Caching Mechanism. This system caches frequently accessed data (specifically the list of users) to avoid redundant database queries.
+
 Implementation Details
 Singleton Pattern: The cache is managed by a SimpleCache class that follows the Singleton pattern. This ensures only one cache instance exists in memory.
 In-Memory Storage: Data is stored using a HashMap<String, Object>.
 Cache Invalidation: The system implements an "Automatic Invalidation" strategy:
 Read (GET): Checks cache first. If empty, queries DB and updates cache.
 Write (POST/PUT/DELETE): Automatically clears the relevant cache key (all_users) to ensure data consistency.
-
+Source Code Location: src/main/java/com/hamidniazi/endterm_project/patterns/SimpleCache.java
